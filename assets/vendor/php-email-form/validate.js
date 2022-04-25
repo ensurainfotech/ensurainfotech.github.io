@@ -130,6 +130,7 @@
       data: data,
       timeout: 40000
     }).done( function(msg){
+    console.log('.done');
       if (msg == 'OK') {
         this_form.find('.loading').slideUp();
         this_form.find('.sent-message').slideDown();
@@ -142,6 +143,7 @@
         this_form.find('.error-message').slideDown().html(msg);
       }
     }).fail( function(data){
+      console.log('.fail');
       console.log(data);
       var error_msg = "Form submission failed!<br>";
       if(data.statusText || data.status) {
@@ -158,7 +160,10 @@
         error_msg += data.responseText;
       }
       this_form.find('.loading').slideUp();
-      this_form.find('.error-message').slideDown().html(error_msg);
+      //this_form.find('.error-message').slideDown().html(error_msg); // temp - comment out
+      // following 2 lines are hack to show success msg
+      this_form.find('.sent-message').slideDown();
+      this_form.find("input:not(input[type=submit]), textarea").val('');
     });
   }
 
