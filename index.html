@@ -914,15 +914,18 @@
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <!--
+            <!-- 
             <h4>Our Newsletter</h4>
             <p>Subscribe to get latest offers and </p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" disabled="disabled" value="Subscribe">
+            <form name="gform" id="gform" enctype="text/plain" action="https://formspree.io/f/xeqnpeok" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+              <input type="email" name="email" id="email">
+              <input type="submit" value="Subscribe">
             </form>
-            -->&nbsp;
+             -->
           </div>
-
+          <!-- 
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+ 			-->
         </div>
       </div>
     </div>
@@ -952,7 +955,15 @@
   <script src="assets/vendor/venobox/venobox.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-
+  <script type="text/javascript">var submitted=false;</script>
+  <!--
+  <script type="text/javascript">
+	$('#gform').on('submit', function(e) {
+  		$('#gform *').fadeOut(2000);
+  		$('#gform').prepend('Your submission has been processed...');
+  	});
+	</script>
+	-->
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
